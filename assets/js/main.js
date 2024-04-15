@@ -26,6 +26,9 @@
         var scrollto = target.offset().top;
         var scrolled = 20;
 
+       /* This code block is checking if an element with the id "header" exists in the document. If it
+       does exist, it then adjusts the scroll position by subtracting the outer height of the
+       "header" element from the scroll position. */
         if ($('#header').length) {
           scrollto -= $('#header').outerHeight()
 
@@ -42,6 +45,11 @@
           scrollTop: scrollto
         }, 1500, 'easeInOutExpo');
 
+        /* This code block is checking if the clicked element's parent has a class of 'nav-menu' or
+        'mobile-nav'. If it does, it removes the 'active' class from all elements with the class
+        'nav-menu' and 'mobile-nav', and then adds the 'active' class to the closest 'li' element to
+        the clicked element. This is likely used for handling the active state of navigation menu
+        items when clicked. */
         if ($(this).parents('.nav-menu, .mobile-nav').length) {
           $('.nav-menu .active, .mobile-nav .active').removeClass('active');
           $(this).closest('li').addClass('active');
@@ -155,6 +163,9 @@
   });
 
   // Portfolio details carousel
+  /* The code `$(".portfolio-details-carousel").owlCarousel({ autoplay: true, dots: true, loop: true,
+  items: 1 });` is initializing a carousel slider for the element with the class
+  "portfolio-details-carousel". */
   $(".portfolio-details-carousel").owlCarousel({
     autoplay: true,
     dots: true,
